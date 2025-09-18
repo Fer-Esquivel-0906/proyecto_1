@@ -72,12 +72,14 @@ if hist:
         fig.update_layout(title='Dispersión del odómetro')
         st.plotly_chart(fig, use_container_width=True)
     
-    elif year:
+    else:
+        if year:
         fig.add_trace(go.Histogram(x=cars['model_year']))
         fig.update_layout(title='Dispersión del año del modelo')
         st.plotly_chart(fig, use_container_width=True)
 
-    elif price:
-        fig.add_trace(go.Histogram(x=cars['price']))
-        fig.update_layout(title='Dispersión del precio de venta')
-        st.plotly_chart(fig, use_container_width=True)
+        else:
+            if price:
+                fig.add_trace(go.Histogram(x=cars['price']))
+                fig.update_layout(title='Dispersión del precio de venta')
+                st.plotly_chart(fig, use_container_width=True)
